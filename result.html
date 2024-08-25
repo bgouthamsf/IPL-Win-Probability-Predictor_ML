@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPL Victory Predictor Result</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(45deg, #9553ff, #4f4080, #454def);
+    }
+
+    .result-container {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 90%;
+      color: white;
+    }
+
+    .result-container h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .result-container p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .team-color {
+      display: inline-block;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 5px;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .progress-bar {
+      background-color: #ddd;
+      border-radius: 13px;
+      padding: 3px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      color: white;
+    }
+
+    .help-section {
+      margin-top: 30px;
+    }
+
+    .help-section p {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+
+    .help-section a {
+      color: #fbbf24;
+      text-decoration: underline;
+    }
+
+    .copyright {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="result-container">
+    <h1>Match Result Prediction</h1>
+    <p class="team-color" style="background-color: {{ team1_color }};">{{ batting_team }}: {{ win_probability }}%</p>
+    <p class="team-color" style="background-color: {{ team2_color }};">{{ bowling_team }}: {{ loss_probability }}%</p>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width: {{ win_probability }}%; background-color: {{ team1_color }};">
+        {{ win_probability }}%
+      </div>
+      <div class="progress-bar-fill" style="width: {{ loss_probability }}%; background-color: {{ team2_color }};">
+        {{ loss_probability }}%
+      </div>
+    </div>
+    <div class="help-section">
+      <p>⚠️ "Cricket betting is harmful and can lead to addiction."</p>
+      <p>If you or someone you know needs help with betting, visit <a href="https://www.begambleaware.org/" target="_blank">BeGambleAware</a> for support.</p>
+    </div>
+  </div>
+  <div class="copyright">
+    &copy; Goutham Bommu
+  </div>
+</body>
+
+</html>

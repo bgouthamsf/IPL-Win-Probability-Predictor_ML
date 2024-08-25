@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPL Victory Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      height: 100vh;
+    }
+
+    .full-height {
+      height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bg-slogans {
+      background: linear-gradient(45deg, #454def, #4f4080, #9553ff);
+      display: flex;
+      color: white;
+      flex-direction: row;
+    }
+
+    .bg-form {
+      background: linear-gradient(45deg, #9553ff, #4f4080, #454def);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left-section, .right-section {
+      width: 50%;
+      padding: 2rem;
+    }
+
+    .left-section h1 {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    .left-section p {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .right-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .right-section p {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .form-section {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 600px;
+      color: white;
+    }
+
+    .form-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .form-section label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #fbbf24;
+    }
+
+    .form-section select, .form-section input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #111827;
+    }
+
+    .form-section button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111827;
+      background-color: #fbbf24;
+      cursor: pointer;
+    }
+
+    .form-section button:hover {
+      background-color: #f59e0b;
+    }
+
+    .copyright {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    function validateTeams() {
+      const battingTeam = document.getElementById("batting_team").value;
+      const bowlingTeam = document.getElementById("bowling_team").value;
+
+      if (battingTeam === bowlingTeam) {
+        alert("Batting Team and Bowling Team cannot be the same.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- First Slide: Slogans -->
+  <div class="full-height bg-slogans">
+    <div class="left-section">
+      <h1>Welcome To IPL VICTORY PREDICTOR</h1>
+    </div>
+    <div class="right-section">
+      <h2>🏏 "Cricket is not just a game, it's an emotion."</h2>
+      <p>⚾ "Keep calm and play cricket."</p>
+      <p>🏏 "Life is better when you're playing cricket."</p>
+    </div>
+  </div>
+
+  <!-- Second Slide: Form -->
+  <div class="full-height bg-form">
+    <main class="flex items-center justify-center h-full text-center px-6">
+      <section class="form-section">
+        <h2 class="mb-6">Enter Match Details</h2>
+        <section class="form-section">
+          <form action="/predict" method="post" onsubmit="return validateTeams();" class="space-y-4">
+            <div>
+              <label for="batting_team">Select Batting Team</label>
+              <select name="batting_team" id="batting_team">
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Gujarat Titans">Gujarat Titans</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Delhi Capitals">Delhi Capitals</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Punjab Kings">Punjab Kings</option>
+              </select>
+            </div>
+            <div>
+              <label for="bowling_team">Select Bowling Team</label>
+              <select name="bowling_team" id="bowling_team">
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Gujarat Titans">Gujarat Titans</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Delhi Capitals">Delhi Capitals</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Punjab Kings">Punjab Kings</option>
+              </select>
+            </div>
+            <div>
+              <label for="selected_city">Select Venue</label>
+              <select name="selected_city" id="selected_city">
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+                <option value="Indore">Indore</option>
+                <option value="Durban">Durban</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Dharamsala">Dharamsala</option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Mohali">Mohali</option>
+                <option value="Pune">Pune</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Port Elizabeth">Port Elizabeth</option>
+                <option value="Centurion">Centurion</option>
+                <option value="Raipur">Raipur</option>
+                <option value="Sharjah">Sharjah</option>
+                <option value="Cuttack">Cuttack</option>
+                <option value="Johannesburg">Johannesburg</option>
+                <option value="Cape Town">Cape Town</option>
+                <option value="East London">East London</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Kimberley">Kimberley</option>
+                <option value="Bloemfontein">Bloemfontein</option>
+              </select>
+            </div>
+            <div>
+              <label for="target">Target</label>
+              <input type="number" name="target" id="target">
+            </div>
+            <div>
+              <label for="score">Score</label>
+              <input type="number" name="score" id="score">
+            </div>
+            <div>
+              <label for="balls_left">Balls Left</label>
+              <input type="number" name="balls_left" id="balls_left">
+            </div>
+            <div>
+              <label for="wickets">Wickets Down</label>
+              <input type="number" name="wickets" id="wickets" max="10">
+            </div>
+            <button type="submit">Predict</button>
+          </form>
+        </section>        
+    </main>
+  </div>
+
+  <div class="copyright">
+    &copy; Goutham Bommu
+  </div>
+</body>
+
+</html>
